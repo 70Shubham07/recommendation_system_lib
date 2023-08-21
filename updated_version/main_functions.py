@@ -16,7 +16,7 @@ from utils import recommendation_by_thompson, recommendation_by_ucb, recommendat
 
 # Read the dataset
 DF_ITEMS = pd.read_csv('Items_without_duplicates.csv')
-DF = DF_ITEMS[ ['super_dept_name', 'prod_nm'] ]
+DF = DF_ITEMS[ ['dept_name', 'prod_name'] ]
 
 
 
@@ -29,9 +29,9 @@ TOTAL_TRIALS_PER_POPULATION = TOTAL_USERS_PER_POPULATION * TOTAL_TRIALS_PER_USER
 
 
 DIVISION_2_ITEMS = {}
-for group, frame in DF.groupby('super_dept_name'):
+for group, frame in DF.groupby('dept_name'):
     # print(group)
-    DIVISION_2_ITEMS[str(group)] = list( frame['prod_nm'] )
+    DIVISION_2_ITEMS[str(group)] = list( frame['prod_name'] )
 
 DIVISIONS = list()
 for division in DIVISION_2_ITEMS.keys():

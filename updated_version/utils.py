@@ -160,24 +160,15 @@ def chi_squared_test_for_independence( population_type_2_total_clicks, total_tri
 
 
 
-# https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.ttest_ind.html
 
-# https://stackoverflow.com/questions/17559897/python-p-value-from-t-statistic
+# From http://docs.scipy.org/doc/scipy/reference/tutorial/stats.html
 
-    # From http://docs.scipy.org/doc/scipy/reference/tutorial/stats.html
+# As an exercise, we can calculate our ttest also directly without using the provided function, which should give us the same answer, and so it does:
 
-    # As an exercise, we can calculate our ttest also directly without using the provided function, which should give us the same answer, and so it does:
-
-    # tt = (sm-m)/np.sqrt(sv/float(n))  # t-statistic for mean
-    # pval = stats.t.sf(np.abs(tt), n-1)*2  # two-sided pvalue = Prob(abs(t)>tt)
-    # print 't-statistic = %6.3f pvalue = %6.4f' % (tt, pval)
-    # t-statistic =  0.391 pvalue = 0.6955
-
-
-    # Why do they call it (stats.t.sf) a survival function? Is it actually the same as en.wikipedia.org/wiki/Survival_function – wordsforthewise Aug 11 '16 at 10:58 
-    # What if it were a one-sided test? – zthomas.nc Mar 7 '19 at 6:07
-    # Follow-up to the accepted answer: The p-value of one-sided t-test is the p-value of the two-sided t-test divided by 2: ``` pval_one_sided = stats.t.sf(np.abs(tt), n-1) ```
-     # – PavelLes May 17 '19 at 14:00
+# tt = (sm-m)/np.sqrt(sv/float(n))  # t-statistic for mean
+# pval = stats.t.sf(np.abs(tt), n-1)*2  # two-sided pvalue = Prob(abs(t)>tt)
+# print 't-statistic = %6.3f pvalue = %6.4f' % (tt, pval)
+# t-statistic =  0.391 pvalue = 0.6955
 
 
 def t_test_for_difference_of_means(list_of_thompson_user_clicks, list_of_ucb_user_clicks, mu_A, mu_B, s_A, s_B, total_sample_points_A, total_sample_points_B):
@@ -210,18 +201,6 @@ def t_test_for_difference_of_means(list_of_thompson_user_clicks, list_of_ucb_use
     else:
         print("Reject H0. Difference is statistically significant")
         return True
-    # How to get t-statistic: # 
-
-    # https://stackoverflow.com/questions/17559897/python-p-value-from-t-statistic
-    # How to get p-value from t-statistic
-    # tt = (sm-m)/np.sqrt(sv/float(n))  # t-statistic for mean
-    # pval = stats.t.sf(np.abs(tt), n-1)*2  # two-sided pvalue = Prob(abs(t)>tt)
-    # print 't-statistic = %6.3f pvalue = %6.4f' % (tt, pval)
-    # t-statistic =  0.391 pvalue = 0.6955
-
-
-
-
 
 
 
