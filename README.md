@@ -65,7 +65,3 @@ Make sure to have the following:
 pip install pandas numpy
 python your_script.py
 ```
-
----
-
-Let me know if you'd like a markdown version ready to drop into a `README.md` file or want help writing documentation for the `utils` or `user_data` components too.
